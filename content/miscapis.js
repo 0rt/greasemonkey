@@ -133,3 +133,11 @@ function GM_console(script) {
 
 GM_console.prototype.log = function() {
 };
+
+// \\ // \\ // \\ // \\ // \\ // \\ // \\ // \\ // \\ // \\ // \\ // \\ // \\ //
+
+function GM_setClipboard( string ) {
+	const gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].
+	getService(Components.interfaces.nsIClipboardHelper);
+	gClipboardHelper.copyString(string);
+}

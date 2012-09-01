@@ -166,6 +166,10 @@ function createSandbox(
     imp(GM_util.hitch(scriptStorage, 'setValue'), 'GM_setValue');
   }
 
+  if (GM_util.inArray(aScript.grants, 'GM_setClipboard')) {
+    imp(function(str){ GM_setClipboard(str); }, 'GM_setClipboard');
+  }
+
   var scriptResources = new GM_Resources(aScript);
   if (GM_util.inArray(aScript.grants, 'GM_getResourceURL')) {
     imp(GM_util.hitch(scriptResources, 'getResourceURL', aScript),
